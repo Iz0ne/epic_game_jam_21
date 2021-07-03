@@ -1,1 +1,1 @@
-* Welcom to EPIC GAME JAM git folder
+* Welcome to EPIC GAME JAM git folder
