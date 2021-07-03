@@ -3,10 +3,10 @@ Une banane expérimentale.
 Une deuxième banane expérimentale.
 
 __Lien tuto de 11 heures__
-*https://www.youtube.com/watch?v=WtDXk6uuZO4&list=RDCMUCJRwb5W4ZzG43J5_dViL6Fw&index=1&ab_channel=TUTOUNITYFR
+* https://www.youtube.com/watch?v=WtDXk6uuZO4&list=RDCMUCJRwb5W4ZzG43J5_dViL6Fw&index=1&ab_channel=TUTOUNITYFR
 
 __Tuto "angry bird" 3h__
-*https://www.youtube.com/watch?v=OR0e-1UBEOU
+* https://www.youtube.com/watch?v=OR0e-1UBEOU
   
 __Inspiration design__ 
-*https://opengameart.org
+* https://opengameart.org
