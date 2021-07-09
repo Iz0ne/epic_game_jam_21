@@ -2207,6 +2207,10 @@ Tilemap:
     m_Data: {fileID: 11400000, guid: 429310348fa25a542b6caad9a539dbbe, type: 2}
   - m_RefCount: 6
     m_Data: {fileID: 11400000, guid: a8eb02bfef620c6438d006039be66d5a, type: 2}
+  - m_RefCount: 0
+    m_Data: {fileID: 0}
+  - m_RefCount: 0
+    m_Data: {fileID: 0}
   m_TileSpriteArray:
   - m_RefCount: 1
     m_Data: {fileID: 3960382931473224707, guid: 62056d8e12ed4134f965e0282974a578, type: 3}
@@ -2216,6 +2220,10 @@ Tilemap:
     m_Data: {fileID: 5527450087285803020, guid: 62056d8e12ed4134f965e0282974a578, type: 3}
   - m_RefCount: 6
     m_Data: {fileID: 8862432624271434952, guid: 62056d8e12ed4134f965e0282974a578, type: 3}
+  - m_RefCount: 0
+    m_Data: {fileID: 0}
+  - m_RefCount: 0
+    m_Data: {fileID: 0}
   m_TileMatrixArray:
   - m_RefCount: 29
     m_Data:
@@ -2521,7 +2529,7 @@ GameObject:
   - component: {fileID: 1969533132}
   - component: {fileID: 1969533131}
   m_Layer: 0
-  m_Name: characters_23
+  m_Name: Player
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
