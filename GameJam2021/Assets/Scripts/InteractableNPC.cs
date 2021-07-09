@@ -17,7 +17,7 @@ public class InteractableNPC : MonoBehaviour {
 		parseTextAsset (dialogFile);
 
 		dialogBand = GameObject.FindWithTag ("DialogBand");
-		//dialogBand.SetActive (false);
+		dialogBand.SetActive (false);
 
 		enumerator = dialogs.GetEnumerator ();
 

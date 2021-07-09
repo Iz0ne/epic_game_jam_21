@@ -14,6 +14,9 @@ public class Player : MonoBehaviour {
     void Start () {
         //get the Rigidbody2D component
         rig = this.transform.GetComponent<Rigidbody2D>();
+
+        textInteract = this.GetComponentInChildren<UnityEngine.UI.Text> ();
+		textInteract.enabled = false;
 	}
 	// Update is called once per frame
 	void FixedUpdate () {
@@ -40,7 +43,10 @@ public class Player : MonoBehaviour {
 
 		if (Input.GetKeyDown(KeyCode.Return))
 		{
-
+            if (interactableObject != null)
+			{
+				interactableObject.SendMessage("Interact");
+			}
 		}
     }
 
