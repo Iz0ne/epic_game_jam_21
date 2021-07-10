@@ -893,8 +893,8 @@ Tilemap:
   - first: {x: -1, y: -4, z: 0}
     second:
       serializedVersion: 2
-      m_TileIndex: 2
-      m_TileSpriteIndex: 16
+      m_TileIndex: 18
+      m_TileSpriteIndex: 13
       m_TileMatrixIndex: 0
       m_TileColorIndex: 0
       m_TileObjectToInstantiateIndex: 65535
@@ -1756,7 +1756,7 @@ Tilemap:
     m_Data: {fileID: 11400000, guid: a250eed7570a10347a72efefa0dd84bb, type: 2}
   - m_RefCount: 4
     m_Data: {fileID: 11400000, guid: 0d6b7e33ab9cfe742b00cc8d9241f16b, type: 2}
-  - m_RefCount: 4
+  - m_RefCount: 3
     m_Data: {fileID: 11400000, guid: 17ab6c4cee59a5e48a1b5ef2f1840915, type: 2}
   - m_RefCount: 6
     m_Data: {fileID: 11400000, guid: ac828bfba26df2e41af18eb2f091b9e3, type: 2}
@@ -1788,7 +1788,7 @@ Tilemap:
     m_Data: {fileID: 0}
   - m_RefCount: 0
     m_Data: {fileID: 0}
-  - m_RefCount: 4
+  - m_RefCount: 5
     m_Data: {fileID: 11400000, guid: 341ac2e75eb7b8a40828040b540e963e, type: 2}
   - m_RefCount: 4
     m_Data: {fileID: 11400000, guid: 1c6470f190932fd4288127c949b93ae7, type: 2}
@@ -1825,13 +1825,13 @@ Tilemap:
     m_Data: {fileID: -666203684049580823, guid: 114f486430b072540ad241a667a737e1, type: 3}
   - m_RefCount: 4
     m_Data: {fileID: -9051667594688063423, guid: 114f486430b072540ad241a667a737e1, type: 3}
-  - m_RefCount: 4
+  - m_RefCount: 5
     m_Data: {fileID: -9181806976973064663, guid: 114f486430b072540ad241a667a737e1, type: 3}
   - m_RefCount: 6
     m_Data: {fileID: -5718133719762094926, guid: 114f486430b072540ad241a667a737e1, type: 3}
   - m_RefCount: 4
     m_Data: {fileID: 4081561573500958764, guid: 114f486430b072540ad241a667a737e1, type: 3}
-  - m_RefCount: 4
+  - m_RefCount: 3
     m_Data: {fileID: 3303656862742353000, guid: 114f486430b072540ad241a667a737e1, type: 3}
   - m_RefCount: 6
     m_Data: {fileID: -2010393866550699290, guid: 114f486430b072540ad241a667a737e1, type: 3}
@@ -1989,6 +1989,10 @@ PrefabInstance:
     - target: {fileID: 7894311969922555596, guid: 243566b209552f94ebf0cf561ef23083, type: 3}
       propertyPath: m_Name
       value: player
+      objectReference: {fileID: 0}
+    - target: {fileID: 7894311969922555597, guid: 243566b209552f94ebf0cf561ef23083, type: 3}
+      propertyPath: m_speed
+      value: 2
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 243566b209552f94ebf0cf561ef23083, type: 3}
