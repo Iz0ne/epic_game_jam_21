@@ -126,5 +126,25 @@ public class Player_Dodo : MonoBehaviour
             m_Animator.ResetTrigger("Right");
             m_Animator.SetTrigger("Idle");
         }
+
+        if (Input.GetKeyDown("space"))
+        {
+            m_speed = m_speed * 2;
+        }
+
+        if (Input.GetKeyUp("space"))
+        {
+            m_speed = m_speed / 2;
+        }
+
+        if (Input.GetKeyDown("z"))
+        {
+            m_speed = m_speed * 5;
+        }
+
+        if (Input.GetKeyUp("z"))
+        {
+            m_speed = m_speed / 5;
+        }
     }
 }
