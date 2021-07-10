@@ -21,20 +21,18 @@ public class InteractableObject : MonoBehaviour {
 		this.audio = this.eventImage.GetComponent<AudioSource>();
 		this.eventImage.gameObject.SetActive (false);
 		this.timer = 0;
-		Debug.Log(Time.fixedDeltaTime);
 	}
 
 
-	private void FixedUpdate() {
+	private void Update() {
 		if(this.timer > 0f && eventImage.gameObject.activeInHierarchy){
-			this.timer -= Time.fixedDeltaTime; 
-			Debug.Log(Time.fixedDeltaTime);
+			this.timer -= Time.unscaledDeltaTime; 
 		}
 		else if (eventImage.gameObject.activeInHierarchy){
 			eventImage.gameObject.SetActive (false);
 			audio.Stop();
+			Time.timeScale = 1;
 		}
-
 		
 	}
 
@@ -65,6 +63,8 @@ public class InteractableObject : MonoBehaviour {
 			this.audio.clip = this.audioclip;
 			this.audio.Play();
 			this.timer = this.appearanceTimeSeconds;
+        	Time.timeScale = 0;
 		}
 	}
+
 }
