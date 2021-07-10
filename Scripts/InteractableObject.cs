@@ -16,7 +16,7 @@ public class InteractableObject : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
-
+		
 		this.eventImage = GameObject.FindWithTag("EventImage").GetComponent<Image>();
 		this.audio = this.eventImage.GetComponent<AudioSource>();
 		this.eventImage.gameObject.SetActive (false);
