@@ -22,7 +22,7 @@ Mr. X arrive a son bureau, la il ya une feuille avec le tâche à faire pendent 
 
 Entre le tache il fait de pauses pour:
 - Fumer (et cramer sa cravatte)
-  - "Your not even able to hold a cicarette in your fingers. Your tie dies from 3rd degree burns."
+  - "You are not even able to hold a cicarette in your fingers. Your tie just died from 3rd degree burns."
 - Manger a midi (tâche sauche tomate)
   - "You just dropped noodles on your tie! Luckly you pad tie came with a complementary tie. Go to the bathroom and change yourself."
 - Aller à la toilette (Love yourself: tâche)
