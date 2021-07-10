@@ -36,9 +36,13 @@ public class Player : MonoBehaviour {
             rig.AddForce(Vector3.right * 30f);
 
         }
-        if (Input.GetKeyDown(KeyCode.W))
+        if (Input.GetKey(KeyCode.W))
         {
-             rig.AddForce(Vector3.up * 300f);
+             rig.AddForce(Vector3.up * 30f);
+        }
+        if (Input.GetKey(KeyCode.S))
+        {
+             rig.AddForce(-Vector3.up * 30f);
         }
 
 		if (Input.GetKeyDown(KeyCode.Return) | Input.GetKeyDown(KeyCode.X))
