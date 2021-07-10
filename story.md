@@ -6,6 +6,7 @@ Il voit quelqu'un qui s'fais virer par le boss parceque il ne portait pas la cra
 Mr. X arrive a son bureau, la il ya une feuille avec le tâche à faire pendent la journée:
 
 - Faire de photocopie
+  - "Your boss wants you to copy the minori-tie report."
   - "Your boss wants you to copy these important forms. And please don't forget the originaly in the machine as last time. Do you remember how embarrassing it was the last time you tried to copy an USB stick?"
   - "Wow, 7 copies within 20 minutes, your new personal record! You deserve a break!"
 - Archivier des document (rien se passe!)
