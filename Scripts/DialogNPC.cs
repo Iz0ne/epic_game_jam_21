@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using System.Text.RegularExpressions;
 
-public class InteractableNPC : MonoBehaviour {
+public class DialogNPC : MonoBehaviour {
 
 	GameObject dialogBand;
 	List<string> dialogs = new List<string>();
