@@ -10,6 +10,8 @@ public class BossPatrol : MonoBehaviour
     public float speed = 200f;
     public float nextWaypointDistance = 3f;
 
+    public bool chase = false;
+
     Path path;
     int currentWaypoint=0;
     bool reachedEndOfPath = false;
@@ -19,7 +21,6 @@ public class BossPatrol : MonoBehaviour
 
     public Vector2 direction;
     public Vector2 force;
-
 
     // Start is called before the first frame update
     void Start()
@@ -61,7 +62,7 @@ public class BossPatrol : MonoBehaviour
         }
 
         //Check that there are remaining point in the path
-        if(currentWaypoint >= path.vectorPath.Count)
+        if (currentWaypoint >= path.vectorPath.Count)
         {
             reachedEndOfPath = true;
             return;
@@ -77,7 +78,12 @@ public class BossPatrol : MonoBehaviour
         //Generate force vector
         force = direction * speed * Time.deltaTime;
         //Apply force to object
-        rb.AddForce(force);
+
+        if(chase == true)
+        {
+            rb.AddForce(force);
+        }
+
 
         //Compute distance to next waypoint
         float distance = Vector2.Distance(rb.position, path.vectorPath[currentWaypoint]);
@@ -93,7 +99,6 @@ public class BossPatrol : MonoBehaviour
 
     void updateSprite()
     {
-        
         if (force.y > 0)
         {
             m_Animator.ResetTrigger("Idle");
