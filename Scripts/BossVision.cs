@@ -21,7 +21,9 @@ public class BossVision : MonoBehaviour
     void Update()
     {
         float angleIncrease = fov / rayCount;
-        float angle = findDegree(this.direction) + (fov / 2f);
+
+        Vector3 sweepingDir = Quaternion.Euler(0, 0, fov /2) *  this.direction ;
+        sweepingDir = sweepingDir.normalized;
         
         Vector3[] vertices = new Vector3[rayCount + 1 + 1];
         Vector2[] uv = new Vector2[vertices.Length];
@@ -34,11 +36,9 @@ public class BossVision : MonoBehaviour
         int triangleIndex = 0;
         for (int i=0; i < rayCount; i++){
             Vector3 vertex;
-            Vector3 dir = getDirectionVector(angle);
-            Vector3 destination = origin + dir * viewDistance;
-
+            Vector3 destination = origin + sweepingDir * viewDistance;
             
-            RaycastHit2D hit = Physics2D.Raycast(origin, dir, viewDistance, layerMask);
+            RaycastHit2D hit = Physics2D.Raycast(origin, sweepingDir, viewDistance, layerMask);
             if (hit.collider == null){
                 vertex = destination;
             }
@@ -57,7 +57,8 @@ public class BossVision : MonoBehaviour
             }
 
             vertexIndex++;
-            angle -= angleIncrease;
+            sweepingDir = Quaternion.Euler(0, 0, -angleIncrease) * sweepingDir;
+            sweepingDir = sweepingDir.normalized;
         }
 
        mesh.vertices = vertices;
@@ -65,12 +66,14 @@ public class BossVision : MonoBehaviour
        mesh.triangles = triangles;
     }
 
-    public static float findDegree(Vector3 dir){
-        float value = (float)((Mathf.Atan2(dir.x, dir.y) / Mathf.PI) * 180f);
-        if(value < 0) value += 360f;
-    
-        return value;
-    }
+    // public static float findDegree(Vector3 dir){
+    //     bool isDirLefty = Mathf.Acos(dir.x) > Mathf.PI / 2f;
+
+    //     float value = (float)(Mathf.Atan2(dir.x, dir.y) * Mathf.Rad2Deg);
+    //     if(isDirLefty) value += 180f;
+
+    //     return value;
+    // }
 
     private static Vector3 getDirectionVector(float angle){
         float rad = angle * Mathf.PI / 180f;
