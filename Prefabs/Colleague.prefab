@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 4288732128654260420}
   - component: {fileID: 4288732128654260443}
   - component: {fileID: 4288732128654260442}
-  - component: {fileID: 4288732128654260423}
+  - component: {fileID: 4025122185471615198}
   m_Layer: 0
   m_Name: Colleague
   m_TagString: Untagged
@@ -142,7 +142,7 @@ CapsuleCollider2D:
   m_Offset: {x: -0.07882294, y: -0.84603274}
   m_Size: {x: 0.91487616, y: 0.9148762}
   m_Direction: 0
---- !u!114 &4288732128654260423
+--- !u!114 &4025122185471615198
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -151,9 +151,14 @@ MonoBehaviour:
   m_GameObject: {fileID: 4288732128654260441}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9c67820d555592949abfe931fca65a0d, type: 3}
+  m_Script: {fileID: 11500000, guid: 2d95386d1b8d2d04e81ba9537bbbb929, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 1
-  taskTime: 1
-  waypoints: []
+  targetArray: []
+  target: {fileID: 0}
+  nextWaypointDistance: 0.5
+  speed: 150
+  direction: {x: 0, y: 0}
+  force: {x: 0, y: 0}
+  minTaskTime: 0
+  maxTaskTime: 5

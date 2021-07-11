@@ -1269,7 +1269,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 8218973322109312192, guid: 024372cca94ee2a94b24f38814cfa9b1, type: 3}
       propertyPath: fov
-      value: 10
+      value: 45
       objectReference: {fileID: 0}
     - target: {fileID: 8218973322109312192, guid: 024372cca94ee2a94b24f38814cfa9b1, type: 3}
       propertyPath: viewDistance
@@ -1279,6 +1279,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: BossVision
       objectReference: {fileID: 0}
+    - target: {fileID: 8218973322109312198, guid: 024372cca94ee2a94b24f38814cfa9b1, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 53e07da319d5eb8f6bd5011f62bbbf11, type: 2}
     - target: {fileID: 8218973322109312199, guid: 024372cca94ee2a94b24f38814cfa9b1, type: 3}
       propertyPath: m_RootOrder
       value: 8
