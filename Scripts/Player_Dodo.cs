@@ -5,20 +5,19 @@ public class Player_Dodo : MonoBehaviour
     Animator m_Animator;
     Rigidbody2D m_Rigid2D;
 
-    AudioSource steps_audio;
+    //AudioSource steps_audio;
     [SerializeField] float m_speed = 2;
 
     private void Start()
     {
         m_Animator = gameObject.GetComponent<Animator>();
         m_Rigid2D = gameObject.GetComponent<Rigidbody2D>();
-        steps_audio = gameObject.GetComponent<AudioSource>();
-        steps_audio.loop = true;
+        //steps_audio = gameObject.GetComponent<AudioSource>();
+        //steps_audio.loop = true;
     }
 
-    private void FixedUpdate()
+    private void Update()
     {
-
 
         if (Input.GetKey("down"))
         {
@@ -134,31 +133,31 @@ public class Player_Dodo : MonoBehaviour
 
         if (Input.GetKeyDown("space"))
         {
-            m_speed = m_speed * 2;
+            m_speed *= 2;
         }
 
         if (Input.GetKeyUp("space"))
         {
-            m_speed = m_speed / 2;
+            m_speed /= 2;
         }
 
         if (Input.GetKeyDown("z"))
         {
-            m_speed = m_speed * 5;
+            m_speed *= 5;
         }
 
         if (Input.GetKeyUp("z"))
         {
-            m_speed = m_speed / 5;
+            m_speed /= 5;
         }
 
 
-        if(m_Rigid2D.velocity.magnitude < 0.1){
-          steps_audio.Stop();
-        }
-        else if(!steps_audio.isPlaying){
-          steps_audio.Play();
-          }
+        //if(m_Rigid2D.velocity.magnitude < 0.1){
+        //  steps_audio.Stop();
+        //}
+        //else if(!steps_audio.isPlaying){
+        //  steps_audio.Play();
+        //  }
 
     }
 }

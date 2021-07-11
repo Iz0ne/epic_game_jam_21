@@ -1,7 +1,7 @@
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
-public class NewBehaviourScript : MonoBehaviour
+public class Button_Start : MonoBehaviour
 {
     private void OnMouseDown()
     {
