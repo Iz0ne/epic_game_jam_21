@@ -5,6 +5,7 @@ using Pathfinding;
 
 public class BossPatrol : MonoBehaviour
 {
+    Animator m_Animator;
     public Transform target;
     public float speed = 200f;
     public float nextWaypointDistance = 3f;
@@ -12,18 +13,32 @@ public class BossPatrol : MonoBehaviour
     Path path;
     int currentWaypoint=0;
     bool reachedEndOfPath = false;
+    
     Seeker seeker;
     Rigidbody2D rb;
-    
+
+    public Vector2 direction;
+    public Vector2 force;
+
 
     // Start is called before the first frame update
     void Start()
     {
         seeker = GetComponent<Seeker>();
         rb = GetComponent<Rigidbody2D>();
+        m_Animator = GetComponent<Animator>();
 
         //Get path
-        seeker.StartPath(rb.position, target.position, OnPathComplete);
+        InvokeRepeating("UpdatePath", 0f, 0.5f);
+        
+    }
+
+    void UpdatePath()
+    {
+        if (seeker.IsDone())
+        {
+            seeker.StartPath(rb.position, target.position, OnPathComplete);
+        }
     }
 
     void OnPathComplete(Path p)
@@ -57,13 +72,10 @@ public class BossPatrol : MonoBehaviour
         }
 
         //Generate Direction vector
-        Vector2 direction = ((Vector2)path.vectorPath[currentWaypoint] - rb.position).normalized;
-
-        Debug.Log(direction);
+        direction = ((Vector2)path.vectorPath[currentWaypoint] - rb.position).normalized;
 
         //Generate force vector
-        Vector2 force = direction * speed * Time.deltaTime;
-        Debug.Log(force);
+        force = direction * speed * Time.deltaTime;
         //Apply force to object
         rb.AddForce(force);
 
@@ -76,6 +88,27 @@ public class BossPatrol : MonoBehaviour
             currentWaypoint++;
         }
 
-        Debug.Log(currentWaypoint);
+        updateSprite();
     }
+
+    void updateSprite()
+    {
+        
+        if (force.y > 0)
+        {
+            m_Animator.ResetTrigger("Idle");
+            m_Animator.SetTrigger("Up");
+        }
+        else if (force.y < 0 && force.x < 0)
+        {
+            m_Animator.ResetTrigger("Idle");
+            m_Animator.SetTrigger("Left");
+        }
+        else if (force.y < 0 && force.x > 0)
+        {
+            m_Animator.ResetTrigger("Idle");
+            m_Animator.SetTrigger("Right");
+        }
+    }
+
 }

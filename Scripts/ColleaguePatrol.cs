@@ -89,11 +89,6 @@ public class ColleaguePatrol : MonoBehaviour
             m_Animator.ResetTrigger("Idle");
             m_Animator.SetTrigger("Right");
         }
-
-
-
-
-
     }
 
 }
