@@ -5,22 +5,38 @@ using Pathfinding;
 
 public class BossPatrol : MonoBehaviour
 {
+    //Animation
     Animator m_Animator;
-    public Transform target;
-    public float speed = 200f;
-    public float nextWaypointDistance = 3f;
-
-    public bool chase = false;
-
-    Path path;
-    int currentWaypoint=0;
-    bool reachedEndOfPath = false;
     
+    //Path
+    public Transform[] targetArray;
+    private int targetIdx;
+    public Transform target;
+    float targetDistance;
+    public float nextWaypointDistance = 3f;
+    int currentWaypoint = 0;
+    bool reachedEndOfPath = false;
+
+    //Movements
+    Path path;
+    public float speed = 200f;
+    public Vector2 direction;
+    public Vector2 force;
+
+
+    //Task
+    public float minTaskTime;
+    public float maxTaskTime;
+    private float taskTime;
+    private float waitTime = 0;
+    private bool isDoingTask = false;
+    
+    
+
     Seeker seeker;
     Rigidbody2D rb;
 
-    public Vector2 direction;
-    public Vector2 force;
+    
 
     // Start is called before the first frame update
     void Start()
@@ -28,6 +44,9 @@ public class BossPatrol : MonoBehaviour
         seeker = GetComponent<Seeker>();
         rb = GetComponent<Rigidbody2D>();
         m_Animator = GetComponent<Animator>();
+        targetIdx = Random.Range(0, targetArray.Length);
+        target = targetArray[targetIdx];
+        taskTime = Random.Range(minTaskTime, maxTaskTime);
 
         //Get path
         InvokeRepeating("UpdatePath", 0f, 0.5f);
@@ -55,6 +74,19 @@ public class BossPatrol : MonoBehaviour
     // Update is called once per frame
     void FixedUpdate()
     {
+        
+        //Acquire new target replace
+        if (false)
+        {
+            //Code to acquire player in the detection cone
+        }
+        else if (reachedEndOfPath)
+        {
+            doTask();
+        }
+        
+
+
         //Check if path is valid
         if (path == null)
         {
@@ -79,23 +111,41 @@ public class BossPatrol : MonoBehaviour
         force = direction * speed * Time.deltaTime;
         //Apply force to object
 
-        if(chase == true)
-        {
-            rb.AddForce(force);
-        }
+        rb.AddForce(force);
 
 
         //Compute distance to next waypoint
-        float distance = Vector2.Distance(rb.position, path.vectorPath[currentWaypoint]);
+        targetDistance = Vector2.Distance(rb.position, path.vectorPath[currentWaypoint]);
 
         //Check if we reached the distance treshold to pass to next waypoint
-        if(distance < nextWaypointDistance)
+        if(targetDistance < nextWaypointDistance)
         {
             currentWaypoint++;
         }
 
         updateSprite();
     }
+
+    void doTask()
+    {
+        isDoingTask = true;
+        waitTime += Time.deltaTime;
+        if (waitTime > taskTime)
+        {
+            //Assign new random task
+            int rdmDestPoint = Random.Range(0, targetArray.Length);
+            if (targetIdx != rdmDestPoint)
+            {
+                targetIdx = rdmDestPoint;
+                target = targetArray[targetIdx];
+                waitTime = 0;
+                taskTime = Random.Range(minTaskTime, maxTaskTime);
+                isDoingTask = false;
+            }
+        }
+    }
+
+
 
     void updateSprite()
     {
