@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using Pathfinding;
 
-public class charactersPathFinding : MonoBehaviour
+public class CharactersPathFinding : MonoBehaviour
 {
     //Animation
     Animator m_Animator;
