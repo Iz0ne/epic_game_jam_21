@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 7894311969922555598}
   - component: {fileID: 7894311969922555597}
   - component: {fileID: 7894311969922555586}
-  - component: {fileID: 731767358}
+  - component: {fileID: 8294481018805213926}
   m_Layer: 0
   m_Name: player
   m_TagString: Untagged
@@ -156,7 +156,7 @@ CapsuleCollider2D:
   m_Offset: {x: -0.07882294, y: -0.84603274}
   m_Size: {x: 0.91487616, y: 0.9148762}
   m_Direction: 0
---- !u!82 &731767358
+--- !u!82 &8294481018805213926
 AudioSource:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -166,11 +166,11 @@ AudioSource:
   m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
-  m_audioClip: {fileID: 8300000, guid: eeac4d85a313f4c98b8e2e6ea3e8162c, type: 3}
-  m_PlayOnAwake: 0
+  m_audioClip: {fileID: 0}
+  m_PlayOnAwake: 1
   m_Volume: 1
   m_Pitch: 1
-  Loop: 1
+  Loop: 0
   Mute: 0
   Spatialize: 0
   SpatializePostEffects: 0
