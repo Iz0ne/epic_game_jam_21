@@ -21,7 +21,7 @@ public class BossVision : MonoBehaviour
     void Update()
     {
         float angleIncrease = fov / rayCount;
-        float angle = Vector3.Angle(transform.right, this.direction) + (fov / 2f);
+        float angle = findDegree(this.direction) + (fov / 2f);
         
         Vector3[] vertices = new Vector3[rayCount + 1 + 1];
         Vector2[] uv = new Vector2[vertices.Length];
@@ -65,6 +65,13 @@ public class BossVision : MonoBehaviour
        mesh.triangles = triangles;
     }
 
+    public static float findDegree(Vector3 dir){
+        float value = (float)((Mathf.Atan2(dir.x, dir.y) / Mathf.PI) * 180f);
+        if(value < 0) value += 360f;
+    
+        return value;
+    }
+
     private static Vector3 getDirectionVector(float angle){
         float rad = angle * Mathf.PI / 180f;
         Vector3 vec = new Vector3(Mathf.Cos(rad), Mathf.Sin(rad));
@@ -80,7 +87,7 @@ public class BossVision : MonoBehaviour
     }
 
     public void SetDirection(Vector3 newDir){
-        this.direction = newDir;
+        this.direction = newDir.normalized;
     }
 
     public Mesh GetMesh(){
