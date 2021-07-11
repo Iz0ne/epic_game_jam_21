@@ -6,7 +6,7 @@ public class BossVision : MonoBehaviour
     public float viewDistance = 10f;
     public float fov = 45f;
     public int rayCount = 30;
-    private float direction = 0f;
+    private Vector3 direction = Vector3.right;
     private Vector3 position;
     private Mesh mesh;
     
@@ -21,7 +21,7 @@ public class BossVision : MonoBehaviour
     void Update()
     {
         float angleIncrease = fov / rayCount;
-        float angle = this.direction + (fov / 2f);
+        float angle = Vector3.Angle(transform.right, this.direction) + (fov / 2f);
         
         Vector3[] vertices = new Vector3[rayCount + 1 + 1];
         Vector2[] uv = new Vector2[vertices.Length];
@@ -77,6 +77,10 @@ public class BossVision : MonoBehaviour
 
     public Vector3 GetPosition(){
         return this.position;
+    }
+
+    public void SetDirection(Vector3 newDir){
+        this.direction = newDir;
     }
 
     public Mesh GetMesh(){
