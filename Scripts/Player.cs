@@ -23,6 +23,16 @@ public class Player : MonoBehaviour {
         HandleControl();
 	}
 
+    void Update(){
+		if (Input.GetKeyDown(KeyCode.Return) | Input.GetKeyDown(KeyCode.X))
+		{
+            if (interactableObject != null)
+			{
+				interactableObject.SendMessage("Interact");
+			}
+		}
+    }
+
 
     void HandleControl()
     {
@@ -45,13 +55,7 @@ public class Player : MonoBehaviour {
              rig.AddForce(-Vector3.up * 30f);
         }
 
-		if (Input.GetKeyDown(KeyCode.Return) | Input.GetKeyDown(KeyCode.X))
-		{
-            if (interactableObject != null)
-			{
-				interactableObject.SendMessage("Interact");
-			}
-		}
+
     }
 
 	public void SetInteractableObject(GameObject interactable){
