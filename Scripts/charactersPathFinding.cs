@@ -71,16 +71,23 @@ public class CharactersPathFinding : MonoBehaviour
         }
     }
 
+    void SetTarget(Transform newTarget)
+    {
+        target = newTarget;
+    }
+
+    void ClearTarget()
+    {
+        target = targetArray[targetIdx];
+    }
+
+
 
     // Update is called once per frame
     void FixedUpdate()
     {
-        //Acquire new target replace
-        if (false)
-        {
-            //Code to acquire player in the detection cone
-        }
-        else if (reachedEndOfPath)
+        //Check to do task
+        if (reachedEndOfPath)
         {
             doTask();
         }
