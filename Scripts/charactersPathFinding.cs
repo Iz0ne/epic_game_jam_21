@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using Pathfinding;
 
-public class BossPatrol : MonoBehaviour
+public class charactersPathFinding : MonoBehaviour
 {
     //Animation
     Animator m_Animator;
@@ -22,7 +22,8 @@ public class BossPatrol : MonoBehaviour
     public float speed = 200f;
     public Vector2 direction;
     public Vector2 force;
-
+    private bool isBlocked;
+    private float blockedTimer = 0;
 
     //Task
     public float minTaskTime;
@@ -74,7 +75,6 @@ public class BossPatrol : MonoBehaviour
     // Update is called once per frame
     void FixedUpdate()
     {
-        
         //Acquire new target replace
         if (false)
         {
@@ -123,12 +123,13 @@ public class BossPatrol : MonoBehaviour
             currentWaypoint++;
         }
 
+
+        checkBlocked();
         updateSprite();
     }
 
     void doTask()
     {
-        isDoingTask = true;
         waitTime += Time.deltaTime;
         if (waitTime > taskTime)
         {
@@ -145,21 +146,44 @@ public class BossPatrol : MonoBehaviour
         }
     }
 
+    void checkBlocked()
+    {
+        //Debug.Log("Taks: "+ isDoingTask + " Blocked Timer: " + blockedTimer + " Velocity: " + rb.velocity.magnitude);
+        if (reachedEndOfPath==false && rb.velocity.magnitude < 0.09f)
+        {
+            blockedTimer += Time.deltaTime;
+        }
+        else           
+        {
+            blockedTimer = 0;
+        }
 
+        if (blockedTimer > 0.5f)
+        {
+            int rdmDestPoint = Random.Range(0, targetArray.Length);
+            if (targetIdx != rdmDestPoint)
+            {
+                targetIdx = rdmDestPoint;
+                target = targetArray[targetIdx];
+                blockedTimer = 0;
+                taskTime = Random.Range(minTaskTime, maxTaskTime);
+            }
+        }
+    }
 
     void updateSprite()
     {
-        if (force.y > 0)
+        if (force.normalized.y > 0)
         {
             m_Animator.ResetTrigger("Idle");
             m_Animator.SetTrigger("Up");
         }
-        else if (force.y < 0 && force.x < 0)
+        else if (force.normalized.y < 0 && force.normalized.x < 0)
         {
             m_Animator.ResetTrigger("Idle");
             m_Animator.SetTrigger("Left");
         }
-        else if (force.y < 0 && force.x > 0)
+        else if (force.normalized.y < 0 && force.normalized.x > 0)
         {
             m_Animator.ResetTrigger("Idle");
             m_Animator.SetTrigger("Right");

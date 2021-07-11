@@ -61,7 +61,6 @@ public class ColleaguePatrol : MonoBehaviour
                 isDoingTask = false;
             }
         }
-
     }
 
     void updateSprite()
