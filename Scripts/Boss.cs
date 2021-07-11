@@ -1,17 +1,19 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using Pathfinding;
 
 public class Boss : MonoBehaviour
 {
 
 	GameObject bossVision;
 
-    PolygonCollider2D collider;
+    
+    AIPath aiPath;
 
 	// Use this for initialization
 	void Start () {
-        collider = GetComponent<PolygonCollider2D>();
+        aiPath = GetComponent<AIPath>();
 		bossVision = GameObject.FindWithTag ("BossVision");
 		bossVision.SetActive (true);
     }
@@ -20,6 +22,7 @@ public class Boss : MonoBehaviour
     void Update()
     {
         bossVision.GetComponent<BossVision>().SetPosition(transform.position);
+        bossVision.GetComponent<BossVision>().SetDirection(aiPath.desiredVelocity);
         
     }
 }
